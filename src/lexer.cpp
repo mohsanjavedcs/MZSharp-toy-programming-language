@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 	
-	string source = "show player1; imagine age = 20;";
+	string source = "204";
 	
 	set<string> keywords = {
 	
@@ -26,7 +26,7 @@ int main(){
 		
 		else if (isalpha(source[i])){
 			string word = "";
-			while(isalpha(source[i]) || isdigit(source[i])){
+			while(i < source.length() && (isalpha(source[i]) || isdigit(source[i]))){
 				word += source[i];
 				i++;
 			}
@@ -43,7 +43,14 @@ int main(){
 		}
 		
 		else if (isdigit(source[i])){
-			cout << "Digit: " <<source[i] << endl;
+			string number = "";
+			while(i < source.length() && isdigit(source[i])){
+				number += source[i];
+				i++;
+			}
+			i--;
+			
+			cout << "Number: " << number << endl;
 		}
 		
 		else {
